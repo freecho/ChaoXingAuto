@@ -17,7 +17,7 @@ class Login:
         self.password = args[1]
         self.block_size = 16
         self.AES_KEY = "u2oh6Vu^HWe4_AES"
-        self.login_url = "https://passport2.chaoxing.com/fanyalogin"
+        self.login_url = "http://passport2.chaoxing.com/fanyalogin"
         self.session = requests.session()
         self.session.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0',
