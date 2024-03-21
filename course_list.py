@@ -1,11 +1,12 @@
+import requests
 from bs4 import BeautifulSoup
-
+from models.course import Course
 
 class CourseList:
     """
     获取课程列表, 传入session，调用get_courses方法获取课程列表
     """
-    def __init__(self, session):
+    def __init__(self, session: requests.Session):
         self.course_url = "https://mooc1-1.chaoxing.com/mooc-ans/visit/courselistdata"
         self.courses = []
         self.session = session
@@ -32,10 +33,10 @@ class CourseList:
                 continue
             course_name = course.find('span', class_='course-name overHidden2').text
             course_id = course.get("courseid")
-            course_info = {
-                "course_name": course_name,
-                "course_id": course_id
-            }
+            clazz_id = course.get("clazzid")
+            person_id = course.get("personid")
+
+            course_info = Course(course_name, course_id, clazz_id, person_id)
             self.courses.append(course_info)
 
         return self.courses

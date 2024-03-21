@@ -8,13 +8,13 @@ class Login:
     登录类
     """
 
-    def __init__(self, *args):
+    def __init__(self, username: str, password: str):
         """
         根据手机号+密码初始化对象
         :param args:
         """
-        self.username = args[0]
-        self.password = args[1]
+        self.username = username
+        self.password = password
         self.block_size = 16
         self.AES_KEY = "u2oh6Vu^HWe4_AES"
         self.login_url = "http://passport2.chaoxing.com/fanyalogin"
